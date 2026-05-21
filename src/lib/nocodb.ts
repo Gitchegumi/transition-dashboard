@@ -62,6 +62,7 @@ async function nocoReq<T>(
   const baseUrl = NOCO_BASE.startsWith("http")
     ? `${NOCO_BASE}${path}`
     : `https://${NOCO_BASE}${path}`;
+  console.log("[NocoDB] Fetching:", baseUrl, "| NOCO_BASE=", NOCO_BASE);
   const res = await fetch(baseUrl, {
     method,
     headers: {
