@@ -9,15 +9,15 @@ interface StatCardProps {
 
 export default function StatCard({ label, value, sub, color }: StatCardProps) {
   const colorMap = {
-    blue: "bg-blue-50 text-blue-700",
-    emerald: "bg-emerald-50 text-emerald-700",
-    amber: "bg-amber-50 text-amber-700",
-    rose: "bg-rose-50 text-rose-700",
+    blue: "bg-blue-900/50 text-blue-300",
+    emerald: "bg-emerald-900/50 text-emerald-300",
+    amber: "bg-amber-900/50 text-amber-300",
+    rose: "bg-rose-900/50 text-rose-300",
   };
 
   return (
-    <div className="rounded-lg border border-slate-200 bg-white p-5 shadow-sm">
-      <p className="text-sm font-medium text-slate-500">{label}</p>
+    <div className="rounded-lg border border-slate-700 bg-slate-800 p-5 shadow-sm">
+      <p className="text-sm font-medium text-slate-400">{label}</p>
       <p className={`mt-2 text-3xl font-bold ${colorMap[color].split(" ")[1]}`}>
         {value}
       </p>
