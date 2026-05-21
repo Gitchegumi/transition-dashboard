@@ -15,10 +15,10 @@ WORKDIR /app
 ENV NODE_ENV=production
 ENV PORT=3000
 
-COPY --from=builder /app/.next/standalone/repos/transition-dashboard/.env ./
-COPY --from=builder /app/.next/standalone/repos/transition-dashboard/package.json ./
-COPY --from=builder /app/.next/standalone/repos/transition-dashboard/server.js ./
-COPY --from=builder /app/.next/standalone/repos/transition-dashboard/node_modules ./node_modules
+COPY --from=builder /app/.next/standalone/.env ./
+COPY --from=builder /app/.next/standalone/package.json ./
+COPY --from=builder /app/.next/standalone/server.js ./
+COPY --from=builder /app/.next/standalone/node_modules ./node_modules
 COPY --from=builder /app/.next/static ./.next/static
 
 EXPOSE 3000
