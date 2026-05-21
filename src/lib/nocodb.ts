@@ -59,8 +59,10 @@ async function nocoReq<T>(
     throw new Error("NOCO_DB_API_KEY not configured");
   }
 
-  const url = `https://${NOCO_BASE}${path}`;
-  const res = await fetch(url, {
+  const baseUrl = NOCO_BASE.startsWith("http")
+    ? `${NOCO_BASE}${path}`
+    : `https://${NOCO_BASE}${path}`;
+  const res = await fetch(baseUrl, {
     method,
     headers: {
       "xc-token": NOCO_TOKEN,
