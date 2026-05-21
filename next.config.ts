@@ -4,6 +4,7 @@ const nextConfig: NextConfig = {
   output: "standalone",
   images: { unoptimized: true },
   allowedDevOrigins: ['10.0.0.210'],
+  distDir: ".next",
 };
 
 export default nextConfig;
