@@ -3,9 +3,6 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   output: "standalone",
   images: { unoptimized: true },
-};
-
-module.exports = {
   allowedDevOrigins: ['10.0.0.210'],
 };
 
