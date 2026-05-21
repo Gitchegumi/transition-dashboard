@@ -16,7 +16,7 @@ ENV NODE_ENV=production
 ENV PORT=3000
 
 # Copy the entire standalone app output
-COPY --from=builder /app/.next/standalone/repos/transition-dashboard/ ./
+COPY --from=builder /app/.next/standalone/ ./
 
 # Copy static files (served separately from .next/static)
 COPY --from=builder /app/.next/static ./.next/static
