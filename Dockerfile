@@ -15,7 +15,7 @@ WORKDIR /app
 ENV NODE_ENV=production
 ENV PORT=3000
 
-COPY --from=builder /app/.next/standalone/.env ./
+# Next.js standalone output is at .next/standalone/ directly
 COPY --from=builder /app/.next/standalone/package.json ./
 COPY --from=builder /app/.next/standalone/server.js ./
 COPY --from=builder /app/.next/standalone/node_modules ./node_modules
