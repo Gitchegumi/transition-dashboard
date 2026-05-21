@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getRoleById, getCompanies } from "@/lib/nocodb";
+import DetailField from "@/components/DetailField";
 
 export const revalidate = 60;
 
@@ -104,11 +105,3 @@ export default async function RoleDetailPage({
   );
 }
 
-function DetailField({ label, value }: { label: string; value: string }) {
-  return (
-    <div>
-      <p className="text-xs font-medium uppercase tracking-wide text-slate-500">{label}</p>
-      <p className="mt-1 text-sm font-medium text-slate-900">{value}</p>
-    </div>
-  );
-}

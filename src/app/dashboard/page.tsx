@@ -1,4 +1,6 @@
-import { getCompanies, getRoles, computeStats } from "@/lib/nocodb";
+import { getCompanies, getRoles, computeStats, isActiveRole } from "@/lib/nocodb";
+import StatCard from "@/components/StatCard";
+import StatusBadge from "@/components/StatusBadge";
 
 export const revalidate = 60;
 
@@ -90,15 +92,7 @@ export default async function DashboardPage() {
                       {role["Date Found"]}
                     </p>
                   </div>
-                  <span
-                    className={`rounded-full px-2.5 py-0.5 text-xs font-medium ${
-                      isActiveRole(role)
-                        ? "bg-emerald-100 text-emerald-700"
-                        : "bg-rose-100 text-rose-700"
-                    }`}
-                  >
-                    {role.Status}
-                  </span>
+                  <StatusBadge status={role.Status} />
                 </div>
               </div>
             ))}
@@ -108,36 +102,3 @@ export default async function DashboardPage() {
   );
 }
 
-function StatCard({
-  label,
-  value,
-  sub,
-  color,
-}: {
-  label: string;
-  value: number;
-  sub: string;
-  color: "blue" | "emerald" | "amber" | "rose";
-}) {
-  const colorMap = {
-    blue: "bg-blue-50 text-blue-700",
-    emerald: "bg-emerald-50 text-emerald-700",
-    amber: "bg-amber-50 text-amber-700",
-    rose: "bg-rose-50 text-rose-700",
-  };
-
-  return (
-    <div className="rounded-lg border border-slate-200 bg-white p-5 shadow-sm">
-      <p className="text-sm font-medium text-slate-500">{label}</p>
-      <p className={`mt-2 text-3xl font-bold ${colorMap[color].split(" ")[1]}`}>
-        {value}
-      </p>
-      <p className="mt-1 text-xs text-slate-400">{sub}</p>
-    </div>
-  );
-}
-
-function isActiveRole(role: { Status?: string }) {
-  const s = (role.Status || "").toLowerCase();
-  return !["closed", "rejected", "declined", "filled"].includes(s);
-}
