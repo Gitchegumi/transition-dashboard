@@ -1,6 +1,6 @@
 import { getCompanies } from "@/lib/nocodb";
 
-export const revalidate = 60;
+export const dynamic = "force-dynamic";
 
 export default async function CompaniesPage() {
   const companies = await getCompanies();

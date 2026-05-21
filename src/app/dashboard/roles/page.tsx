@@ -2,7 +2,7 @@ import Link from "next/link";
 import { getCompanies, getRoles, isActiveRole, daysOpen } from "@/lib/nocodb";
 import StatusBadge from "@/components/StatusBadge";
 
-export const revalidate = 60;
+export const dynamic = "force-dynamic";
 
 export default async function RolesPage() {
   const [companies, roles] = await Promise.all([getCompanies(), getRoles()]);

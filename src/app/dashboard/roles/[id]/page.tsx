@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { getRoleById, getCompanies } from "@/lib/nocodb";
 import DetailField from "@/components/DetailField";
 
-export const revalidate = 60;
+export const dynamic = "force-dynamic";
 
 export default async function RoleDetailPage({
   params,

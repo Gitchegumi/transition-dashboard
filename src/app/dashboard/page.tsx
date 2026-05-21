@@ -2,7 +2,7 @@ import { getCompanies, getRoles, computeStats, isActiveRole } from "@/lib/nocodb
 import StatCard from "@/components/StatCard";
 import StatusBadge from "@/components/StatusBadge";
 
-export const revalidate = 60;
+export const dynamic = "force-dynamic";
 
 export default async function DashboardPage() {
   const [companies, roles] = await Promise.all([getCompanies(), getRoles()]);
