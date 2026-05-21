@@ -5,4 +5,8 @@ const nextConfig: NextConfig = {
   images: { unoptimized: true },
 };
 
+module.exports = {
+  allowedDevOrigins: ['10.0.0.210'],
+};
+
 export default nextConfig;

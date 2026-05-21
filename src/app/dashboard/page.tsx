@@ -11,8 +11,8 @@ export default async function DashboardPage() {
   return (
     <div className="space-y-8">
       <div>
-        <h2 className="text-2xl font-bold text-slate-900">Overview</h2>
-        <p className="mt-1 text-sm text-slate-500">
+        <h2 className="text-2xl font-bold text-slate-100">Overview</h2>
+        <p className="mt-1 text-sm text-slate-400">
           Tracking {stats.activeRoles} active roles across {stats.companiesWithOpenRoles} companies
         </p>
       </div>
@@ -45,22 +45,22 @@ export default async function DashboardPage() {
       </div>
 
       <section>
-        <h3 className="mb-4 text-lg font-semibold text-slate-900">Active Roles by Company</h3>
-        <div className="overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm">
+        <h3 className="mb-4 text-lg font-semibold text-slate-100">Active Roles by Company</h3>
+        <div className="overflow-hidden rounded-lg border border-slate-700 bg-slate-800 shadow-sm">
           <table className="min-w-full text-sm">
-            <thead className="bg-slate-50">
+            <thead className="bg-slate-800">
               <tr>
-                <th className="px-4 py-3 text-left font-medium text-slate-600">Company</th>
-                <th className="px-4 py-3 text-right font-medium text-slate-600">Open Roles</th>
+                <th className="px-4 py-3 text-left font-medium text-slate-300">Company</th>
+                <th className="px-4 py-3 text-right font-medium text-slate-300">Open Roles</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-slate-100">
+            <tbody className="divide-y divide-slate-700">
               {Object.entries(stats.rolesByCompany)
                 .sort((a, b) => b[1] - a[1])
                 .map(([company, count]) => (
-                  <tr key={company} className="hover:bg-slate-50">
-                    <td className="px-4 py-3 font-medium text-slate-900">{company}</td>
-                    <td className="px-4 py-3 text-right text-slate-600">{count}</td>
+                  <tr key={company} className="hover:bg-slate-800">
+                    <td className="px-4 py-3 font-medium text-slate-100">{company}</td>
+                    <td className="px-4 py-3 text-right text-slate-400">{count}</td>
                   </tr>
                 ))}
             </tbody>
@@ -69,7 +69,7 @@ export default async function DashboardPage() {
       </section>
 
       <section>
-        <h3 className="mb-4 text-lg font-semibold text-slate-900">Recently Added</h3>
+        <h3 className="mb-4 text-lg font-semibold text-slate-100">Recently Added</h3>
         <div className="space-y-3">
           {roles
             .filter((r) => r["Date Found"])
@@ -82,12 +82,12 @@ export default async function DashboardPage() {
             .map((role) => (
               <div
                 key={role.Id}
-                className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm"
+                className="rounded-lg border border-slate-700 bg-slate-800 p-4 shadow-sm"
               >
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="font-medium text-slate-900">{role["Role Title"]}</p>
-                    <p className="mt-0.5 text-sm text-slate-500">
+                    <p className="font-medium text-slate-100">{role["Role Title"]}</p>
+                    <p className="mt-0.5 text-sm text-slate-400">
                       {role.Companies?.Company || "Unknown"} ·{" "}
                       {role["Date Found"]}
                     </p>

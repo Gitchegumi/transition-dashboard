@@ -28,7 +28,7 @@ export default async function RoleDetailPage({
 
   return (
     <div className="space-y-6">
-      <div className="flex items-center gap-2 text-sm text-slate-500">
+      <div className="flex items-center gap-2 text-sm text-slate-400">
         <Link href="/dashboard/roles" className="hover:text-slate-900 hover:underline">
           ← Roles
         </Link>
@@ -36,19 +36,19 @@ export default async function RoleDetailPage({
         <span className="text-slate-900">{role["Role Title"]}</span>
       </div>
 
-      <div className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
+      <div className="rounded-lg border border-slate-700 bg-slate-800 p-6 shadow-sm">
         <div className="flex items-start justify-between">
           <div>
-            <h1 className="text-2xl font-bold text-slate-900">{role["Role Title"]}</h1>
-            <p className="mt-1 text-slate-500">
+            <h1 className="text-2xl font-bold text-slate-100">{role["Role Title"]}</h1>
+            <p className="mt-1 text-slate-400">
               {company?.Company || "Unknown"} · {role["Role Family"] || "—"}
             </p>
           </div>
           <span
             className={`rounded-full px-3 py-1 text-sm font-medium ${
               isActive
-                ? "bg-emerald-100 text-emerald-700"
-                : "bg-rose-100 text-rose-700"
+                ? "bg-emerald-900 text-emerald-300"
+                : "bg-rose-900 text-rose-300"
             }`}
           >
             {role.Status}
@@ -81,8 +81,8 @@ export default async function RoleDetailPage({
 
         {role["Positioning Notes"] && (
           <div className="mt-6">
-            <h3 className="text-sm font-medium text-slate-900">Notes</h3>
-            <p className="mt-2 whitespace-pre-wrap text-sm text-slate-600">
+            <h3 className="text-sm font-medium text-slate-100">Notes</h3>
+            <p className="mt-2 whitespace-pre-wrap text-sm text-slate-300">
               {role["Positioning Notes"]}
             </p>
           </div>
